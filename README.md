@@ -37,7 +37,7 @@ Con las funciones del CRUD podremos permitir que los artistas puedan hacer las m
 - Como artista quisiera tener información o feedback de mis usuarios, como el rating de mis canciones
 
 ## Diagramas de Caso de Uso
-
+![use-cases](https://github.com/Leoguzs/proyectoBack-end/blob/7e3b8f54aa8d2851a4025921e93bcd3beec0e8bc/img/use_cases.png)
 
 ## Ambiente de desarrollo
 
