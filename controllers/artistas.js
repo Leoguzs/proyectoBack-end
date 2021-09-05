@@ -13,7 +13,7 @@ var artista1 = new Artist(req.params.id, 'Radiohead', 'UK', 1985, )
 
 function modificarArtist(req, res) {
 
-var usuario1 = new Artist(req.params.id, 'Radiohead', 'United Kingdom', 1985)
+var artista1 = new Artist(req.params.id, 'Radiohead', 'United Kingdom', 1985)
 var modificaciones = req.body
 artista1 = { ...artista1, ...modificaciones}
 res.send(artista1)
