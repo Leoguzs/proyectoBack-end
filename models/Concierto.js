@@ -7,4 +7,4 @@ this.date = date
     }
 }
 
-module.exports = Concierto
+module.exports = Concierto;
