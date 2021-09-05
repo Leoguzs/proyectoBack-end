@@ -23,6 +23,8 @@ Con las funciones del CRUD podremos permitir que los artistas puedan hacer las m
 - Como usuario premium, me gustaría tener acceso a todo el contenido, para no perderme de nada.
 - Como usuario free, me gustaría tener acceso a un limitado número de canciones de forma gratutita, por si no puedo ser Premium 
 - Siendo usuario, estaría cool poder saber qué conciertos hay cerca de mi ciudad.
+- Como usuario me gustaría saber noticias de mis artistas favoritos
+- Como usuario quiero poder compartir mis playlists con otros usuarios
 
 
 ### Artista 
@@ -31,6 +33,8 @@ Con las funciones del CRUD podremos permitir que los artistas puedan hacer las m
 - Como artista, me gustaría poder agregar y/o actualizar datos de canciones o discos.
 - Como artista, estaría genial poder saber qué conciertos hay cerca de mi ciudad.
 - Siendo un artista, lo más conveniente es poder ver qué disqueras hay dentro de la plataforma, para ofrecer mi trabajo.
+- Como artista me gustaria informar a mis fans sobre las noticias sobre mi
+- Como artista quisiera tener información o feedback de mis usuarios, como el rating de mis canciones
 
 ## Diagramas de Caso de Uso
 
