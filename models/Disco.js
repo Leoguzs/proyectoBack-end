@@ -10,4 +10,4 @@ class Disco {
     }
 }
 
-module.exports = Disco
+module.exports = Disco;
