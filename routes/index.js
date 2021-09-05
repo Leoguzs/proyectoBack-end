@@ -10,6 +10,8 @@ res.send('Welcome to BEDU Music');
 
 router.use('/usuarios', require('./usuarios'));
 router.use('/artistas', require('./artistas'));
+router.use('/discos', require('./discos'));
+router.use('/conciertos', require('./conciertos'));
 
 //exportamos el nuevo router
 module.exports = router;
