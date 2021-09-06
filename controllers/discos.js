@@ -2,7 +2,7 @@ const Disco = require('../models/Disco');
 
 function crearDisco(req, res){
     var disco = new Disco(...req.body);
-    res.status(200).send(disco);
+    res.status(201).send(disco);
 }
 
 function obtenerDiscos(req, res){
