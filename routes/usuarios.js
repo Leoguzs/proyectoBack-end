@@ -9,5 +9,5 @@ const{
 
 router.post('/', crearUsuario)
 router.delete('/', eliminarUsuario)
-router.get('/', obtenerUsuario)
-router.put('/', modificarUsuario)
+router.get('/:id', obtenerUsuario)
+router.put('/:id', modificarUsuario)
