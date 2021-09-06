@@ -10,3 +10,5 @@ router.post('/', crearDisco);
 router.get('/', obtenerDiscos);
 router.put('/:id', modificarDisco);
 router.delete('/:id', eliminarDisco);
+
+module.exports = router;
