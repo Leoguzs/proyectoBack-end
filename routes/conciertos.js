@@ -7,7 +7,7 @@ const {crearConcierto,
 
 router.get('/', obtenerConcierto)
 router.post('/', crearConcierto)
-router.put('/', modificarConcierto)
-router.delete('/', eliminarConcierto)
+router.put('/:id', modificarConcierto)
+router.delete('/:id', eliminarConcierto)
 
 module.exports=router;
