@@ -10,7 +10,7 @@ eliminarArtist
 
 router.get('/', obtenerArtist)
 router.post('/', crearArtist)
-router.put('/', modificarArtist)
+router.put('/:id', modificarArtist)
 router.delete('/:id', eliminarArtist)
 
 module.exports = router;
