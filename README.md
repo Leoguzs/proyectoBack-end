@@ -36,7 +36,7 @@ Con las funciones del CRUD podremos permitir que los artistas puedan hacer las m
 - Como artista me gustaria informar a mis fans sobre las noticias sobre mi
 - Como artista quisiera tener información o feedback de mis usuarios, como el rating de mis canciones
 
-## Diagramas de Caso de Uso
+## Diagrama de Caso de Uso
 ![use-cases](https://github.com/Leoguzs/proyectoBack-end/blob/7e3b8f54aa8d2851a4025921e93bcd3beec0e8bc/img/use_cases.png)
 
 ## Ambiente de desarrollo
@@ -44,7 +44,7 @@ Con las funciones del CRUD podremos permitir que los artistas puedan hacer las m
 Buscamos cumplir con todas las características requeridas para realizar este proyecto de back-end, es por eso que tenemos nuestro entorno de desarrollo en NODE JS,
 en donde utilizaremos paquetes de npm que nos permitirán desarrollarlo. 
 
-Utilizando una base de datos NoSQL como MongoDB, con su objeto de modelado: Moongose, podremos convertir en realidad nuestro proyecto. Sabemos que los paquetes de npm son importantes y lo más idóneo es informar con cuáles estaremos trabajando:
+Utilizando una base de datos NoSQL como MongoDB, con su objeto de modelado: Moongose, podremos convertir en realidad nuestra API. Sabemos que los paquetes de npm son importantes y lo más idóneo es informar con cuáles estaremos trabajando:
 
 - express 
 - body-parser 
@@ -52,6 +52,8 @@ Utilizando una base de datos NoSQL como MongoDB, con su objeto de modelado: Moon
 - nodemon
 - cookie-parser
 - express-session
+
+Con el paquete nodemon podremos correr el proyecto como desarrolladores y podrá ser consultado a través de Postman o Insomnia una vez que la base de datos y el deploy estén listos.
 
 
 ## Imágenes del ambiente de desarrollo y trabajo en equipo
