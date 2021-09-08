@@ -52,7 +52,7 @@ Utilizando una base de datos NoSQL como MongoDB, con su objeto de modelado: Moon
 - nodemon
 - cookie-parser
 - express-session
-
+- mongoose
 Con el paquete nodemon podremos correr el proyecto como desarrolladores y podrá ser consultado a través de Postman o Insomnia una vez que la base de datos y el deploy estén listos.
 
 
