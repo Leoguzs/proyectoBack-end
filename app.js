@@ -1,4 +1,4 @@
-//requerimos los paquetes para utilizar
+//THIS ARE THE PACKAGES WE ARE GOING TO USE
 const express = require('express');
 const app = express();
 
@@ -7,11 +7,25 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//Configurando las rutas
+//CONFIG TO LINK DATABASE THROUGH MONGOOSE
+const mongoose = require('mongoose')
+
+mongoose.connect(
+    //link to MONGO
+)
+
+mongoose.set("debug", true)
+
+require('.models/Artist')
+require('.models/Concert')
+require('.models/Album')
+require('.models/User')
+
+//CONFIGURING ROUTES
 app.use('/v1', require('./routes'));
 
-// INICIALIZACION SERVIDOR 
+// INITIALIZING SERVER
 const PORT = 4001;
 app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
+    console.log(`Server listening on http://localhost:${PORT}`)
 })

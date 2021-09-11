@@ -1,15 +1,15 @@
 let router = require('express').Router();
 
 
-// definimos el comportamiento en la raíz del endpoint
+// WE DEFINE THE BEHAVIPUR OF THE ENDPOINT ROOT
 router.get('/',(req, res)=>{
 res.send('Welcome to BEDU Music');
 });
 
-router.use('/usuarios', require('./usuarios'));
-router.use('/artistas', require('./artistas'));
-router.use('/discos', require('./discos'));
-router.use('/conciertos', require('./conciertos'));
+router.use('/users', require('./users'));
+router.use('/artists', require('./artists'));
+router.use('/albums', require('./albums'));
+router.use('/concerts', require('./concerts'));
 
-//exportamos el nuevo router
+//EXPORT NEW ROUTER
 module.exports = router;
