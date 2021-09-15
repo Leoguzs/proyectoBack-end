@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const{
+let {
     newAlbum,
     getAlbum,
     updateAlbum,
