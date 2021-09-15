@@ -26,4 +26,4 @@ ArtistSchema.methods.publicData = ()=>{
     }
 };
 
-mongoose.model("Artista", ArtistSchema)
+mongoose.model("Artist", ArtistSchema)

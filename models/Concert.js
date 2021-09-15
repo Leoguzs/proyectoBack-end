@@ -12,11 +12,11 @@ module.exports = Concierto; */
 
 const mongoose = require('mongoose');
 
-const ConcertSchema = new mogoose.Schema({
+const ConcertSchema = new mongoose.Schema({
     artist: {type: String, required: true},
     place: {type: String, required: true},
     date: {type: String, required:true}
-},{timestamps: true, collection: 'Concert'})
+},{timestamps: true, collection: 'concerts'})
 
 ConcertSchema.methods.publicData = ()=>{
     return{
@@ -27,4 +27,4 @@ ConcertSchema.methods.publicData = ()=>{
     }
 };
 
-mongoose.model("Artist", ConcertSchema)
+mongoose.model("Concert", ConcertSchema)
