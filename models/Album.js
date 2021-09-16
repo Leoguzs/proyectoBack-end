@@ -29,7 +29,7 @@ AlbumSchema.methods.publicData = () => {
         artist:this.artist,
         discName:this.discName,
         year:this.year,
-        label:this.genre,
+        label:this.label,
         genre:this.genre
     }
 };
