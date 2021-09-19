@@ -16,10 +16,11 @@ mongoose.connect(
 
 mongoose.set("debug", true)
 
-require('.models/Artist')
-require('.models/Concert')
-require('.models/Album')
-require('.models/User')
+
+require('./models/Artist')
+require('./models/Concert')
+require('./models/Album')
+require('./models/User')
 
 //CONFIGURING ROUTES
 app.use('/v1', require('./routes'));

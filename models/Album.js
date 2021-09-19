@@ -34,4 +34,4 @@ AlbumSchema.methods.publicData = () => {
     }
 };
 
-mongoose.model("Album", ArtistSchema)
+mongoose.model("Album", AlbumSchema)

@@ -17,7 +17,7 @@ const UserSchema= new mongoose.Schema({
     name: {type: String, required: true},
     lastname: {type: String, required: true},
     age: {type: Number, required: true},
-    status:{type: String, required:true},
+    status:{type: String, enum:['Premium', 'Basico']},
     email: {type: String, required:true},
     password: {type: String, required:true} //it could be hash
 },{timestamps: true, collection: 'users'})

@@ -1,25 +1,29 @@
 {
-  "name": "proyectoback-end",
+  "name": "proyectoBack-end",
   "version": "1.0.0",
-  "description": "",
+  "description": "Este proyecto se llama BEDU Music: música para programar ;)",
   "main": "app.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./app.js",
-    "dev": "nodemon ./app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leoguzs/proyectoBack-end.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leoguzs/proyectoBack-end/issues"
+  },
+  "homepage": "https://github.com/Leoguzs/proyectoBack-end#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-session": "^1.17.2",
-    "mongoose": "^6.0.5"
-  },
-  "devDependencies": {
+    "mongoose": "^6.0.6",
     "nodemon": "^2.0.12"
   }
 }
