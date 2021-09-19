@@ -14,14 +14,25 @@ function newUser(req, res, next) {
 }
 
 
+//CRUD
 
-function getUser(req, res) {
+//get
+function getUser(req, res, next) {
+    if (req.params.id){
+        User.findById(req.params.id)
+        .then(us => {res.send(us)})
+        .catch(next)
+    } else {
+        User.find()
+        .then(users=>{res.send(users)})
+        .catch(next)
+    }
 }
 
 
 //update
 function updateUser(req, res, next) {
-    User.findById(requ.params.id)
+    User.findById(req.params.id)
         .then(user => {
             if (!user) { return res.sendStatus(404); }
             let updatedInfo = req.body
@@ -36,7 +47,7 @@ function updateUser(req, res, next) {
             if(typeof updatedInfo.email !== "undefined")
                 user.email = updatedInfo.email
                 if (typeof updatedInfo.password !== "undefined")
-                user.password = updatedInfo.
+                user.password = updatedInfo.password
                 
             user.save()
             .then(updated =>{
@@ -47,8 +58,10 @@ function updateUser(req, res, next) {
         .catch(next)
 }
 
-function deleteUser(req, res) {
-
+function deleteUser(req, res, next) {
+    User.findOneAndDelete({_id:req.params.id})
+    .then (d => {res.status(200).send("The user has been deleted")})
+    .catch (next)
 }
 
 module.exports = {

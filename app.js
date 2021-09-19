@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const mongoose = require('mongoose')
 
 mongoose.connect(
-    //link to MONGO
+    "mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority"
 )
 
 mongoose.set("debug", true)
