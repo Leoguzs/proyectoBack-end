@@ -8,8 +8,8 @@ deleteUser
 } = require('../controllers/users')
 
 router.post('/', newUser)
-router.delete('/:id', getUser)
-router.get('/', updateUser)
-router.put('/:id', deleteUser)
+router.delete('/:id', deleteUser)
+router.get('/', getUser )
+router.put('/:id', updateUser)
 
 module.exports=router;

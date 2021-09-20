@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose') //it's to going to help us to communicate with the Database
 const User = mongoose.model("User")
 
@@ -8,21 +7,21 @@ const User = mongoose.model("User")
 //save new user in the Database
 function newUser(req, res, next) {
     var user = new User(req.body);
-    user.save().then(nuUser => {
+    user.save().then(nuUser => {       //success
         res.status(200).send(nuUser)
-    }).catch(next)
+    }).catch(next)                     //error
 }
 
 
 //CRUD
 
 //get
-function getUser(req, res, next) {
+function getUser(req, res, next) {    //If the client uses id, means, it wants to find one user 
     if (req.params.id){
         User.findById(req.params.id)
         .then(us => {res.send(us)})
         .catch(next)
-    } else {
+    } else {                         //the client will get ALL the users
         User.find()
         .then(users=>{res.send(users)})
         .catch(next)
@@ -34,7 +33,7 @@ function getUser(req, res, next) {
 function updateUser(req, res, next) {
     User.findById(req.params.id)
         .then(user => {
-            if (!user) { return res.sendStatus(404); }
+            if (!user) { return res.sendStatus(401); }
             let updatedInfo = req.body
             if (typeof updatedInfo.name !== "undefined")
                 user.name = updatedInfo.name
@@ -51,7 +50,7 @@ function updateUser(req, res, next) {
                 
             user.save()
             .then(updated =>{
-                res.status(201).json(updated.publicData())
+                res.status(200).json(updated.publicData())
             })
             .catch(next)
         })

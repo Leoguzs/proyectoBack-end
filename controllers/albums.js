@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const Album = mongoose.model("Album");
 
-function newAlbum(req, res){
+function newAlbum(req, res, next){
     var album = new Album(req.body);
     album.save().then(alb => {
          res.status(201).send(alb)
     }).catch(next);
 }
 
-function getAlbum(req, res){
+function getAlbum(req, res, next){
     if(req.params.id){
         Album.findById(req.params.id)
         .then(alb => {res.send(alb)})
@@ -20,7 +20,7 @@ function getAlbum(req, res){
     }
 }
 
-function updateAlbum(req, res){
+function updateAlbum(req, res, next){
     Album.findById(req.params.id)
     .then(album => {
         if(!album){ return res.sendStatus(404); }
@@ -42,7 +42,7 @@ function updateAlbum(req, res){
     }).catch(next)
 }
 
-function deleteAlbum (req, res){
+function deleteAlbum (req, res, next){
     Album.findOneAndDelete({_id:req.params.id})
     .then(r => {res.status(200).send("El album se elimino.")})
     .catch(next)

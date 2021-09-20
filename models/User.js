@@ -14,10 +14,15 @@
 
 const mongoose = require('mongoose');
 const UserSchema= new mongoose.Schema({
-    name: {type: String, required: true},
-    lastname: {type: String, required: true},
+    name: {
+        type: String, 
+        required: [true, "Tiene que haber un nombre en usuario"]
+    },
+    lastname: {
+        type: String, 
+        required: [true, "Tiene que haber un apellido en usuario"]},
     age: {type: Number, required: true},
-    status:{type: String, enum:['Premium', 'Basico']},
+    status:{type: String, enum:['Premium', 'Basico'], required:true},
     email: {type: String, required:true},
     password: {type: String, required:true} //it could be hash
 },{timestamps: true, collection: 'users'})
@@ -28,6 +33,7 @@ UserSchema.methods.publicData = ()=>{  //I did not require email nor password, j
     name: this.name,
     lastname: this.lastname,
     age: this.age,
+    email:this.email,
     status:this.status,
     }
 };
