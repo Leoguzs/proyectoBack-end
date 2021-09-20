@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Album = mongoose.model("Mascota");
+const Album = mongoose.model("Album");
 
 function newAlbum(req, res){
     var album = new Album(req.body);
