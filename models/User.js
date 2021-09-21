@@ -27,7 +27,7 @@ const UserSchema= new mongoose.Schema({
     password: {type: String, required:true} //it could be hash
 },{timestamps: true, collection: 'users'})
 
-UserSchema.methods.publicData = ()=>{  //I did not require email nor password, just in case
+UserSchema.methods.publicData = function () {  //I did not require email nor password, just in case
     return{
     id: this.id,
     name: this.name,
