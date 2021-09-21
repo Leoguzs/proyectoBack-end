@@ -24,15 +24,15 @@ function newUser(req, res, next) {
 
 //get
 function getUser(req, res, next) {    //If the client uses id, means, it wants to find one user 
-    User.findById(req.user.id) 
-    .then(user =>{
-    if(!user){
+    User.findById(req.user.id, (err, user) =>{ 
+    if(!user || err){
         return res.sendStatus(401)
     }
-    return res.json(user.publicData())
+    return res.send(user.publicData())
     })
-    .catch(next)
+    .catch(err => res.send(err))
 }
+
 
 
 //update/put
