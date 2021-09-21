@@ -10,6 +10,8 @@ app.use(bodyParser.json());
 //CONFIG TO LINK DATABASE THROUGH MONGOOSE
 const mongoose = require('mongoose')
 
+            
+
 mongoose.connect(
     "mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority"
 )
@@ -21,6 +23,8 @@ require('./models/Artist')
 require('./models/Concert')
 require('./models/Album')
 require('./models/User')
+
+require('./config/passport') 
 
 //CONFIGURING ROUTES
 app.use('/v1', require('./routes'));

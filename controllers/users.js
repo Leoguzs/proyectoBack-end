@@ -1,37 +1,43 @@
 const mongoose = require('mongoose') //it's to going to help us to communicate with the Database
+const passport = require('passport')
 const User = mongoose.model("User")
 
 
 //CRUD
 
-//save new user in the Database
+//save new user in the Database/post
 function newUser(req, res, next) {
-    var user = new User(req.body);
-    user.save().then(nuUser => {       //success
-        res.status(200).send(nuUser)
-    }).catch(next)                     //error
+   const body = req.body,
+    password = body.password
+
+    delete body.password
+    const user = new User(body)
+
+    user.newPassword(password);    //sesion 7 revisar crearPassword
+    user.save()
+    .then( user =>{
+        return res.status(200).json(user.toAuthJSON())
+    })
+    .catch(next)
 }
 
-
-//CRUD
 
 //get
 function getUser(req, res, next) {    //If the client uses id, means, it wants to find one user 
-    if (req.params.id){
-        User.findById(req.params.id)
-        .then(us => {res.send(us)})
-        .catch(next)
-    } else {                         //the client will get ALL the users
-        User.find()
-        .then(users=>{res.send(users)})
-        .catch(next)
+    User.findById(req.user.id) 
+    .then(user =>{
+    if(!user){
+        return res.sendStatus(401)
     }
+    return res.json(user.publicData())
+    })
+    .catch(next)
 }
 
 
-//update
+//update/put
 function updateUser(req, res, next) {
-    User.findById(req.params.id)
+    User.findById(req.user.id)
         .then(user => {
             if (!user) { return res.sendStatus(401); }
             let updatedInfo = req.body
@@ -46,11 +52,11 @@ function updateUser(req, res, next) {
             if(typeof updatedInfo.email !== "undefined")
                 user.email = updatedInfo.email
                 if (typeof updatedInfo.password !== "undefined")
-                user.password = updatedInfo.password
+                user.newPassword(updatedInfo.password)
                 
             user.save()
             .then(updated =>{
-                res.status(200).json(updated.publicData())
+                res.status(201).json(updated.publicData())
             })
             .catch(next)
         })
@@ -58,16 +64,32 @@ function updateUser(req, res, next) {
 }
 
 function deleteUser(req, res, next) {
-    User.findOneAndDelete({_id:req.params.id})
+    User.findOneAndDelete({_id: req.user.id})
     .then (d => {res.status(200).send("The user has been deleted")})
     .catch (next)
 }
 
+function newSesion(req, res, next){
+    if(!req.body.email || !req.body.password){
+        return res.status(422).json({error: {email : "missing information"}})
+    }
+    passport.authenticate('local', 
+        {session: false},                      
+        function (err, user, info){
+            if(err){return next(err)}
+            if(user) {
+                user.token = user.generateJWT()   //sesion 7
+            } else {
+               return res.status(422).json(info)
+            }
+        }) (req, res, next)
+}
 module.exports = {
     newUser,
     getUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    newSesion
 }
 
 

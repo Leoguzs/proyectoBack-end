@@ -38,4 +38,6 @@ UserSchema.methods.publicData = ()=>{  //I did not require email nor password, j
     }
 };
 
+
+//jwt? sesion 7
 mongoose.model("User", UserSchema)
