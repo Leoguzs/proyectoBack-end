@@ -35,6 +35,7 @@ const UserSchema= new mongoose.Schema({
 
 },{timestamps: true, collection: 'users'})
 
+<<<<<<< HEAD
 UserSchema.plugin(uniqueValidator, {message: "Ya existe"})
 
 
@@ -70,6 +71,9 @@ UserSchema.methods.newPassword = function(password){
     }
   }
 UserSchema.methods.publicData = function (){  //I did not require email nor password, just in case
+=======
+UserSchema.methods.publicData = function () {  //I did not require email nor password, just in case
+>>>>>>> c9ee0dd476a308a0b2c23d8b2fad0fe6e457858b
     return{
     id: this.id,
     name: this.name,
