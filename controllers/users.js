@@ -84,12 +84,24 @@ function newSesion(req, res, next){
             }
         }) (req, res, next)
 }
+
+function count (req, res, next){   /*status search */
+    var status = req.params.st
+    User.aggregate([
+        {'$match': {'status' : status}},
+        {'$count' :  'total'}
+    ]).then(r =>{
+        res.status(200).send(r)
+    })
+    .catch(next)
+}
 module.exports = {
     newUser,
     getUser,
     updateUser,
     deleteUser,
-    newSesion
+    newSesion,
+    count
 }
 
 

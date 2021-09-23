@@ -13,6 +13,11 @@
 // module.exports = Usuario
 
 const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator')
+const crypto = require('crypto')
+const jwt = require('jsonwebtoken')
+const secret = require('../config').secret
+
 const UserSchema= new mongoose.Schema({
     name: {
         type: String, 
@@ -23,11 +28,48 @@ const UserSchema= new mongoose.Schema({
         required: [true, "Tiene que haber un apellido en usuario"]},
     age: {type: Number, required: true},
     status:{type: String, enum:['Premium', 'Basico'], required:true},
-    email: {type: String, required:true},
-    password: {type: String, required:true} //it could be hash
+    email: {type: String, required:true, unique:true, match:[/\s+@\s+.\s+/, "Email invalido"]},
+    index:true,
+    hash: String,
+    salt: String
+
 },{timestamps: true, collection: 'users'})
 
-UserSchema.methods.publicData = ()=>{  //I did not require email nor password, just in case
+UserSchema.plugin(uniqueValidator, {message: "Ya existe"})
+
+
+UserSchema.methods.newPassword = function(password){
+
+    this.salt = crypto.randomBytes(16).toString('hex');
+    this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512')
+    .toString("hex")
+  }
+  
+  UserSchema.methods.validatePassword = function (password) {
+    const newHash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512')
+    .toString('hex')
+    return this.hash === newHash
+  }
+  
+  UserSchema.methods.generateJWT = function() {
+    const today = new Date();
+    const exp = new Date(today);
+    exp.setDate(today.getDate() + 60);
+  
+    return jwt.sign({
+      id: this._id,
+      email: this.email,
+      exp: parseInt(exp.getTime() / 1000),
+    }, secret)
+  }
+  
+  UserSchema.methods.toAuthJSON = function(){
+    return {
+      email: this.email,
+      token: this.generateJWT()
+    }
+  }
+UserSchema.methods.publicData = function (){  //I did not require email nor password, just in case
     return{
     id: this.id,
     name: this.name,
@@ -36,8 +78,6 @@ UserSchema.methods.publicData = ()=>{  //I did not require email nor password, j
     email:this.email,
     status:this.status,
     }
-};
+}
 
-
-//jwt? sesion 7
 mongoose.model("User", UserSchema)

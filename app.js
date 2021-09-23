@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //CONFIG TO LINK DATABASE THROUGH MONGOOSE
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
             
 

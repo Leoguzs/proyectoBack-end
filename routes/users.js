@@ -5,13 +5,15 @@ const{
 getUser,
 updateUser,
 deleteUser,
-newSesion
+newSesion,
+count
 } = require('../controllers/users')
 
 const auth = require('./auth')
 
-router.get('/', auth.required, getUser )
-router.get('/:id', auth.required, getUser )
+router.get('/', auth.required, getUser)
+router.get('/count/:st', auth.required, count)
+router.get('/:id', auth.required, getUser)
 router.post('/', newUser)
 router.post('/enter', newSesion)
 router.put('/:id', auth.required, updateUser)
