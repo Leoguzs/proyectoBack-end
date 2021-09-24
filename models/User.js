@@ -28,14 +28,13 @@ const UserSchema= new mongoose.Schema({
         required: [true, "Tiene que haber un apellido en usuario"]},
     age: {type: Number, required: true},
     status:{type: String, enum:['Premium', 'Basico'], required:true},
-    email: {type: String, required:true, unique:true, match:[/\s+@\s+.\s+/, "Email invalido"]},
-    index:true,
+    email: {type: String, required:true, unique:true, match:[/\S+@\S+.\S+/, "Email invalido"],
+    index:true},
     hash: String,
     salt: String
 
 },{timestamps: true, collection: 'users'})
 
-<<<<<<< HEAD
 UserSchema.plugin(uniqueValidator, {message: "Ya existe"})
 
 
@@ -71,9 +70,6 @@ UserSchema.methods.newPassword = function(password){
     }
   }
 UserSchema.methods.publicData = function (){  //I did not require email nor password, just in case
-=======
-UserSchema.methods.publicData = function () {  //I did not require email nor password, just in case
->>>>>>> c9ee0dd476a308a0b2c23d8b2fad0fe6e457858b
     return{
     id: this.id,
     name: this.name,
@@ -85,3 +81,16 @@ UserSchema.methods.publicData = function () {  //I did not require email nor pas
 }
 
 mongoose.model("User", UserSchema)
+
+
+
+/* exportar variable de entorno en terminal 
+
+export Leonardo=45
+
+echo $Leonardo      imprime lo que le decimos
+ */
+
+
+//definir la liga a la conxion de base de datos
+//process.env.Leonardo   y trae el valor

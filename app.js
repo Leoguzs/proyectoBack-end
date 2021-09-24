@@ -12,11 +12,24 @@ const mongoose = require('mongoose');
 
             
 
-mongoose.connect(
-    "mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority"
-)
+// mongoose.connect(  //MONGO_URI la va a tomar como variable de entorno
+//  /*   process.env.MONGO_URI */ "mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority"
+// )
 
-mongoose.set("debug", true)
+// mongoose.connect( "mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+//     if (err)
+//        console.error(err);
+//     else
+//        console.log("Connected to the mongodb"); 
+//   });
+// mongoose.set("debug", true)
+
+mongoose.connect("mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: true,
+})
 
 
 require('./models/Artist')
@@ -31,6 +44,6 @@ app.use('/v1', require('./routes'));
 
 // INITIALIZING SERVER
 const PORT = 4001;
-app.listen(PORT, () => {
+app.listen(PORT, () => {   /* (process.env.PORT), */
     console.log(`Server listening on http://localhost:${PORT}`)
 })
