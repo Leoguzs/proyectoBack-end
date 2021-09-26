@@ -4,8 +4,8 @@ const TrackSchema = new mongoose.Schema({
     name: { type: String, required: true },
     disc_number: { type: String, required: false },
     track_number: { type: String, required: true },
-    album: { type: mongoose.Schema.Types.ObjectId, required: true },
-    artists: [{ type: mongoose.Schema.Types.ObjectId, required: true }],
+    album: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Album' },
+    artists: [{ type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Artist' }],
     duration_ms: { type: String, required: true },
     audio_url: { type: String, required: true },
     type: { type: String, required: true }
