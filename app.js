@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 //CONFIG TO LINK DATABASE THROUGH MONGOOSE
 const mongoose = require('mongoose');
 
-            
+
 
 // mongoose.connect(  //MONGO_URI la va a tomar como variable de entorno
 //  /*   process.env.MONGO_URI */ "mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority"
@@ -36,8 +36,9 @@ require('./models/Artist')
 require('./models/Concert')
 require('./models/Album')
 require('./models/User')
+require('./models/Track')
 
-require('./config/passport') 
+require('./config/passport')
 
 //CONFIGURING ROUTES
 app.use('/v1', require('./routes'));
