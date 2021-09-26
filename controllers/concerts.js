@@ -4,7 +4,7 @@ const Concert = mongoose.model("Concert")
 
 //Funciones CRUD: funcionalidad completa para nuestro controlador
 
-function newConcert (req, res) {
+function newConcert (req, res, next) {
     var concert = new Concert(req.body);
 
     concert.save().then(conc => {
@@ -12,7 +12,7 @@ function newConcert (req, res) {
     }).catch(next);
 }
 
-function getConcert (req, res){
+function getConcert (req, res, next){
     if(req.params.id){
             Concert.findById(req.params.id).then(conc => {res.send(conc)}).catch(next)
         }else{
@@ -20,7 +20,7 @@ function getConcert (req, res){
         }
 }
 
-function updateConcert (req, res){
+function updateConcert (req, res, next){
     Concert.findById(req.concert.id)
         .then(concerts => {
             if (!concerts) { 
@@ -41,7 +41,7 @@ function updateConcert (req, res){
         }).catch(next)
 }
 
-function deleteConcert (req, res){
+function deleteConcert (req, res, next){
     Concert.findOneAndDelete({_id:req.params.id})
     .then(c => {res.status(200).send("El concierto ha sido cancelado")}).catch(next)
 }
