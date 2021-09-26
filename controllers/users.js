@@ -31,7 +31,7 @@ function getUser(req, res, next) {    //If the client uses id, means, it wants t
     return res.send(user.publicData())
     })
     .catch(err => res.send(err)) */
-    if(req.params.id){
+    if(req.params.id){        
         User.findById(req.params.id)
         .then(us => {res.send(us)})
         .catch(next)
@@ -104,13 +104,28 @@ function count (req, res, next){   /*status search */
     })
     .catch(next)
 }
+
+function totalUsers (req, res, next){ /* counts total users */
+    let total =req.params.to
+    User.aggregate([
+        {
+          '$count': 'null'
+        }
+      ]).then(r =>{
+          res.status(200).send(r)
+      }).catch(next)
+}
+
+
+
 module.exports = {
     newUser,
     getUser,
     updateUser,
     deleteUser,
     newSesion,
-    count
+    count, 
+    totalUsers
 }
 
 
