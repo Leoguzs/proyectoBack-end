@@ -48,9 +48,23 @@ function deleteAlbum (req, res, next){
     .catch(next)
 }
 
+function albumField (req, res, next){ /* counts total users */
+    let artist =req.params.art
+    Album.aggregate([
+        {
+          '$match': {
+            'artist': 'Megadeth'
+          }
+        }
+      ]).then(r =>{
+          res.status(200).send(r)
+      }).catch(next)
+}
+
 module.exports = {
     newAlbum,
     getAlbum,
     updateAlbum,
-    deleteAlbum
+    deleteAlbum, 
+    albumField
 };

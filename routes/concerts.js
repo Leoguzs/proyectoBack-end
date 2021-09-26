@@ -5,8 +5,9 @@ const {newConcert,
     deleteConcert
 } = require ('../controllers/concerts')
 
-router.get('/', newConcert)
-router.post('/', getConcert)
+router.get('/', getConcert)
+router.get('/:id', getConcert)
+router.post('/', newConcert)
 router.put('/:id', updateConcert)
 router.delete('/:id', deleteConcert)
 

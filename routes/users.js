@@ -6,17 +6,20 @@ getUser,
 updateUser,
 deleteUser,
 newSesion,
-count
+count,
+totalUsers,
+
 } = require('../controllers/users')
 
 const auth = require('./auth')
 
-router.get('/', auth.required, getUser)
-router.get('/count/:st', auth.required, count)
-router.get('/:id', auth.required, getUser)
+router.get('/', /* auth.required, */ getUser)
+router.get('/count/:st', /* auth.required, */ count)   //basico/premium
+router.get('/count/', /* auth.required, */ totalUsers)
+router.get('/:id', /* auth.required, */ getUser)
 router.post('/', newUser)
 router.post('/enter', newSesion)
-router.put('/:id', auth.required, updateUser)
-router.delete('/:id', auth.required, deleteUser)
+router.put('/:id',/*  auth.required, */ updateUser)
+router.delete('/:id', /* auth.required, */ deleteUser)
 
 module.exports=router;

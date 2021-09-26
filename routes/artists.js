@@ -3,13 +3,14 @@ const router = require('express').Router()
 
 const {
     newArtist,
-    getArtist,
-    updateArtist,
-    deleteArtist
+   deleteArtist,
+   updateArtist,
+   getArtist
 } = require('../controllers/artists')
 
-router.get('/', newArtist)
-router.post('/', getArtist)
+router.get('/', getArtist)
+router.get('/:id', getArtist)
+router.post('/', newArtist)
 router.put('/:id', updateArtist)
 router.delete('/:id', deleteArtist)
 
