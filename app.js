@@ -33,7 +33,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 
-mongoose.connect(MONGO_URI, {
+mongoose.connect('mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -53,8 +53,9 @@ require('./config/passport')
 app.use('/v1', require('./routes'));
 
 // INITIALIZING SERVER
-app.listen(process.env.PORT, () => {   /* (process.env.PORT), */
-    console.log(`Server listening on http://localhost:${process.env.PORT}`)
+let PORT = 4001
+app.listen(PORT, () => {   /* (process.env.PORT), */
+    console.log(`Server listening on http://localhost:${PORT}`)
 })
 
 
