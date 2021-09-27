@@ -63,10 +63,6 @@ function deleteTrack(req, res, next) {
 }
 
 function getSearch(req, res, next) {
-
-    const Track = mongoose.model("Track");
-    //const Artist = mongoose.model("Artist");
-
     var itemSearch = {};
     Object.keys(Track.schema.obj).forEach(field => {
         if (field in req.query) {
@@ -76,12 +72,11 @@ function getSearch(req, res, next) {
 
     var regex_query = {}
     Object.keys(itemSearch).forEach(field => { regex_query[field] = { "$regex": req.query[field], "$options": 'i' } })
-    Track.find(regex_query).populate('artists')
+    Track.find(regex_query).populate('artists').populate('album')
         .then(r => { res.status(200).send(r) })
         .catch(next)
 
 }
-
 
 function getAll(req, res, next) {
     var qlimit;
@@ -93,32 +88,14 @@ function getAll(req, res, next) {
         qlimit = Number(req.query.limit);
         delete req.query.limit;
     }
-    Track.find(req.query, null, { limit: qlimit }).populate('artists')
+    Track.find(req.query, null, { limit: qlimit }).populate('artists').populate('album')
         .then(r => { res.status(200).send(r) })
         .catch(next)
 }
 
 function getFields(req, res, next) {
-    const Concert = mongoose.model("Concert");
-
-    Concert.find({
-        "location":
-        {
-            "$nearSphere":
-            {
-                "$geometry": {
-                    "type": "Point",
-                    "coordinates": [parseFloat(req.query.lng), parseFloat(req.query.lat)]
-                },
-                //"$minDistance": 0,
-                //"$maxDistance": 0
-            }
-        }
-    }
-    ).populate('artist').then(r => { res.status(200).send(r) })
-        .catch(next)
-    /*
     var itemSearch = {};
+
     Object.keys(Track.schema.obj).forEach(field => {
         if (field in req.query) {
             itemSearch[field] = req.query[field]
@@ -138,10 +115,17 @@ function getFields(req, res, next) {
     if (!req.query.artists) {
         arti = ''
     }
-    Track.find(itemSearch, null, { projection: project, ...{ limit: 0 } }).populate(arti)
+    var alb = 'album';
+    if (!req.query.album) {
+        alb = ''
+    }
+
+    var regex_query = {}
+    Object.keys(itemSearch).forEach(field => { regex_query[field] = { "$regex": req.query[field], "$options": 'i' } })
+
+    Track.find(regex_query, null, { projection: project, ...{ limit: 0 } }).populate(arti).populate(alb)
         .then(r => { res.status(200).send(r) })
         .catch(next)
-        */
 }
 
 

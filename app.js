@@ -10,16 +10,12 @@ app.use(bodyParser.json());
 //CONFIG TO LINK DATABASE THROUGH MONGOOSE
 const mongoose = require('mongoose');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 17a9d070d98b01d68042f38646e35ab3656293d8
 
 //Generating Swagger
 const swaggerJsDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express');
 
-const swaggerOptions =  {
+const swaggerOptions = {
     swaggerDefinition: {
         info: {
             title: 'BEDU Music API',
@@ -33,8 +29,8 @@ const swaggerOptions =  {
     apis: ["app.js"]
 };
 
-    const swaggerDocs= swaggerJsDoc(swaggerOptions);
-    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 
 mongoose.connect("mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority", {
@@ -63,9 +59,9 @@ app.listen(PORT, () => {   /* (process.env.PORT), */
 })
 
 
-           
 
-           
+
+
 
 //Routes
 /**
@@ -74,8 +70,8 @@ app.listen(PORT, () => {   /* (process.env.PORT), */
  *      put:
  *        summary: actualiza album de la BD  con ID
  *        tags: [albums]
- *        parameters: 
- *             - in: path 
+ *        parameters:
+ *             - in: path
  *               name: id
  *               schema:
  *                type: sting
@@ -86,7 +82,7 @@ app.listen(PORT, () => {   /* (process.env.PORT), */
  *            description: Respuesta exitosa
  */
 /**
- 
+
 //Routes
 /**
  * @swagger

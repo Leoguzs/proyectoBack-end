@@ -4,13 +4,19 @@ const {
     getAlbum,
     updateAlbum,
     deleteAlbum,
-    albumField
+    albumField,
+    getSearch,
+    getAll,
+    getFields
 } = require('../controllers/albums');
 
-router.post('/', newAlbum);
-router.get('/', getAlbum);
+router.get('/search', getSearch);
+router.get('/all', getAll);
+router.get('/fields', getFields);
+router.get('/match/:art', albumField)
 router.get('/:id', getAlbum);
-router.get('/match/:art', albumField )
+router.get('/', getAlbum);
+router.post('/', newAlbum);
 router.put('/:id', updateAlbum);
 router.delete('/:id', deleteAlbum);
 
