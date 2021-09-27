@@ -6,33 +6,51 @@ Será una API, la cual integraremos en un puerto y le integraremos sus respectiv
 
 Los usuarios van a poder acceder al contenido de la base de datos para poder tener acceso a todos los artistas dependiendo del status de sus cuentas -que pueden ser gratis o premium-. 
 
-Debemos tener en cuenta que hay 4 categorías (entidades):
+Debemos tener en cuenta que hay 5 categorías (entidades):
 
 - Artistas: que pueden publicar y escuchar música
+
+![Artists](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h42_31.png)
+
 - Usuarios: que pueden escuchar música
+
+![Users](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h43_10.png)
+
 - Albums para que el usuario pueda ingresar a ellos
+
+![Albums](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h41_09.png)
+
 - Conciertos: para saber qué conciertos hay cerca del usuario
+
+![Concerts](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h42_50.png)
+
+- Track: entidades que consumen los usuarios
+
+![Tracks](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h38_13.png)
 
 Con las funciones del CRUD podremos permitir que los artistas puedan hacer las modificaciones necesarias para que tengan un rol colaborativo en el proyecto, ya que ellos son lo más importante. 
 
 
 ## Historias de usuario
 ### Usuario
-- Yo, como usuario de BEDU Music, es que al momento de crear una playlist tenga orden y claridad en la música.
+
 - Como usuario, me gustaría tener acceso a gran variedad de música, para poder disfrutarla cuando sea.
 - Como usuario premium, me gustaría tener acceso a todo el contenido, para no perderme de nada.
 - Como usuario free, me gustaría tener acceso a un limitado número de canciones de forma gratutita, por si no puedo ser Premium 
 - Siendo usuario, estaría cool poder saber qué conciertos hay cerca de mi ciudad.
+#### Próximo a implementar:
+- Yo, como usuario de BEDU Music, es que al momento de crear una playlist tenga orden y claridad en la música.
 
 ### Artista 
 - Yo, como artista, puedo subir contenido como canciones y discos, para darme a conocer.
 - Como artista, puedo escuchar música y conocer a más personas como yo.
 - Como artista, me gustaría poder agregar y/o actualizar datos de canciones o discos.
 - Como artista, estaría genial poder saber qué conciertos hay cerca de mi ciudad.
+#### Próximo a implementar:
+- Como artista me gustaria informar a mis fans sobre las noticias sobre mi.
 - Siendo un artista, lo más conveniente es poder ver qué disqueras hay dentro de la plataforma, para ofrecer mi trabajo.
-- Como artista me gustaria informar a mis fans sobre las noticias sobre mi
 
-## Diagrama de Caso de Uso
+## Diagrama de Caso de Uso de la implementación del proyecto final
 ![use-cases](https://github.com/Leoguzs/proyectoBack-end/blob/7e3b8f54aa8d2851a4025921e93bcd3beec0e8bc/img/use_cases.png)
 
 ## Ambiente de desarrollo
@@ -64,3 +82,7 @@ Con el paquete nodemon podremos correr el proyecto como desarrolladores y podrá
 - Novales Campos Fernando Itzama 
 - Guatemala Mariano Alfredo
 
+## LINK SWAGGER: https://bedumusic.herokuapp.com/api-docs/
+
+
+## LINK HEROKU: https://bedumusic.herokuapp.com/v1/

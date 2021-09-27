@@ -33,7 +33,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 
-mongoose.connect('mongodb+srv://apiUser:leostonem@cluster0.aimfg.mongodb.net/beduMusic?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -45,6 +45,7 @@ require('./models/Artist')
 require('./models/Concert')
 require('./models/Album')
 require('./models/User')
+require('./models/Track')
 
 require('./config/passport')
 
@@ -52,9 +53,9 @@ require('./config/passport')
 app.use('/v1', require('./routes'));
 
 // INITIALIZING SERVER
-const PORT = 4001
-app.listen(PORT, () => {   /* (process.env.PORT), */
-    console.log(`Server listening on http://localhost:${PORT}`)
+
+app.listen(process.env.PORT, () => {   /* (process.env.PORT), */
+    console.log(`Server listening on http://localhost:${process.env.PORT}`)
 })
 
 
@@ -78,6 +79,10 @@ app.listen(PORT, () => {   /* (process.env.PORT), */
  *            description: Respuesta exitosa
  */
 
+
+
+
+
 /**
  * @swagger
  * /v1/albums/{id}:
@@ -97,6 +102,7 @@ app.listen(PORT, () => {   /* (process.env.PORT), */
  */
 
 /**
+
  * @swagger
  * /v1/albums/{id}:
  *      delete:
@@ -113,6 +119,10 @@ app.listen(PORT, () => {   /* (process.env.PORT), */
  *          '200':
  *            description: elimininado exitosamente
 */
+
+
+
+//Routes
 
 /**
  * @swagger
@@ -411,7 +421,7 @@ app.listen(PORT, () => {   /* (process.env.PORT), */
  *             - in: path
  *               name: id
  *               schema:
- *                type: sting
+ *                type: string
  *               required: true
  *               description: El Id del artista
  *        responses:
@@ -455,4 +465,4 @@ app.listen(PORT, () => {   /* (process.env.PORT), */
  *
 */
 
-
+/////////put prueba////////
