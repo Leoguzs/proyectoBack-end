@@ -46,9 +46,20 @@ function deleteConcert (req, res, next){
     .then(c => {res.status(200).send("El concierto ha sido cancelado")}).catch(next)
 }
 
+function totalConcerts (req, res, next) {
+    let artist = req.params.art
+    Concert.aggregate([
+        {'$match' : {'artist' : artist}},
+        {'$count' : 'total'}
+    ]).then(r=> {
+        res.status(200).send(r)
+    })
+    .catch(next)
+}
 module.exports = {
     newConcert,
     getConcert,
     updateConcert,
-    deleteConcert
+    deleteConcert,
+    totalConcerts
 }
