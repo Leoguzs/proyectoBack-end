@@ -13,17 +13,31 @@ module.exports = Concierto; */
 const mongoose = require('mongoose');
 
 const ConcertSchema = new mongoose.Schema({
-    artist: {type: String, required: true},
-    place: {type: String, required: true},
-    date: {type: String, required:true}
-},{timestamps: true, collection: 'concerts'})
+    artist: { type: mongoose.Schema.Types.ObjectId, ref: 'Artist', required: true },
+    artist_name: { type: String },
+    place: { type: String, required: true },
+    date: { type: String, required: true },
+    location: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    }
+}, { timestamps: true, collection: 'concerts' })
 
-ConcertSchema.methods.publicData = ()=>{
-    return{
+ConcertSchema.methods.publicData = () => {
+    return {
         id: this.id,
         artist: this.artist,
+        artist_name: this.artist_name,
         place: this.place,
-        date: this.date
+        date: this.date,
+        location: this.location
     }
 };
 
