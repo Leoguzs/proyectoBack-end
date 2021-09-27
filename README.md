@@ -64,3 +64,5 @@ Con el paquete nodemon podremos correr el proyecto como desarrolladores y podrá
 - Novales Campos Fernando Itzama 
 - Guatemala Mariano Alfredo
 
+LINK SWAGGER: https://bedumusic.herokuapp.com/api-docs/
+
