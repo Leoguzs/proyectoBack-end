@@ -15,7 +15,7 @@ const mongoose = require('mongoose');
 const swaggerJsDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express');
 
-const swaggerOptions =  {
+const swaggerOptions = {
     swaggerDefinition: {
         info: {
             title: 'BEDU Music API',
@@ -29,8 +29,8 @@ const swaggerOptions =  {
     apis: ["app.js"]
 };
 
-    const swaggerDocs= swaggerJsDoc(swaggerOptions);
-    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 
 mongoose.connect(MONGO_URI, {
@@ -45,8 +45,9 @@ require('./models/Artist')
 require('./models/Concert')
 require('./models/Album')
 require('./models/User')
+require('./models/Track')
 
-require('./config/passport') 
+require('./config/passport')
 
 //CONFIGURING ROUTES
 app.use('/v1', require('./routes'));
@@ -57,7 +58,7 @@ app.listen(process.env.PORT, () => {   /* (process.env.PORT), */
 })
 
 
-           
+
 
  
 
@@ -77,14 +78,18 @@ app.listen(process.env.PORT, () => {   /* (process.env.PORT), */
  *            description: Respuesta exitosa
  */
 
+
+
+
+
 /**
  * @swagger
  * /v1/albums/{id}:
  *      get:
  *        summary: obten album de la BD  con ID
  *        tags: [albums]
- *        parameters: 
- *             - in: path 
+ *        parameters:
+ *             - in: path
  *               name: id
  *               schema:
  *                type: sting
@@ -96,6 +101,7 @@ app.listen(process.env.PORT, () => {   /* (process.env.PORT), */
  */
 
 /**
+
  * @swagger
  * /v1/albums/{id}:
  *      delete:
@@ -112,6 +118,10 @@ app.listen(process.env.PORT, () => {   /* (process.env.PORT), */
  *          '200':
  *            description: elimininado exitosamente
 */
+
+
+
+//Routes
 
 /**
  * @swagger
