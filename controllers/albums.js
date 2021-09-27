@@ -75,7 +75,8 @@ function albumField(req, res, next) { /* counts total users */
             '$match': {
                 'artist': artist
             }
-        }
+        },
+        { '$count': 'total' }
     ]).then(r => {
         res.status(200).send(r)
     }).catch(next)

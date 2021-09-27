@@ -112,7 +112,6 @@ function getFields(req, res, next) {
         .catch(next)
 }
 
-
 function getNearConcert(req, res, next) {
     Concert.find({
         "location":
@@ -131,6 +130,18 @@ function getNearConcert(req, res, next) {
     ).populate('artist').then(r => { res.status(200).send(r) })
         .catch(next)
 }
+
+function totalConcerts(req, res, next) {
+    let artist = req.params.art
+    Concert.aggregate([
+        { '$match': { 'artist': artist } },
+        { '$count': 'total' }
+    ]).then(r => {
+        res.status(200).send(r)
+    })
+        .catch(next)
+}
+
 module.exports = {
     newConcert,
     getConcert,
@@ -139,5 +150,6 @@ module.exports = {
     getSearch,
     getAll,
     getFields,
-    getNearConcert
+    getNearConcert,
+    totalConcerts
 }

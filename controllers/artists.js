@@ -109,6 +109,17 @@ function getFields(req, res, next) {
         .catch(next)
 }
 
+function artistCount(req, res, next) {
+    let name = req.params.nam
+    Artist.aggregate([
+        { '$match': { 'name': name } },
+        { '$count': 'total' }
+    ]).then(r => {
+        res.status(200).send(r)
+    })
+        .catch(next)
+}
+
 
 module.exports = {
     newArtist,
@@ -117,7 +128,8 @@ module.exports = {
     getArtist,
     getSearch,
     getAll,
-    getFields
+    getFields,
+    artistCount
 };
 
 
