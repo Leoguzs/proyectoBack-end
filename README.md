@@ -9,10 +9,24 @@ Los usuarios van a poder acceder al contenido de la base de datos para poder ten
 Debemos tener en cuenta que hay 5 categorías (entidades):
 
 - Artistas: que pueden publicar y escuchar música
+
+![Artists](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h42_31.png)
+
 - Usuarios: que pueden escuchar música
+
+![Users](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h43_10.png)
+
 - Albums para que el usuario pueda ingresar a ellos
+
+![Albums](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h41_09.png)
+
 - Conciertos: para saber qué conciertos hay cerca del usuario
+
+![Concerts](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h42_50.png)
+
 - Track: entidades que consumen los usuarios
+
+![Tracks](https://raw.githubusercontent.com/Leoguzs/proyectoBack-end/fernando/2021-09-26_23h38_13.png)
 
 Con las funciones del CRUD podremos permitir que los artistas puedan hacer las modificaciones necesarias para que tengan un rol colaborativo en el proyecto, ya que ellos son lo más importante. 
 
@@ -68,7 +82,7 @@ Con el paquete nodemon podremos correr el proyecto como desarrolladores y podrá
 - Novales Campos Fernando Itzama 
 - Guatemala Mariano Alfredo
 
-LINK SWAGGER: https://bedumusic.herokuapp.com/api-docs/
+## LINK SWAGGER: https://bedumusic.herokuapp.com/api-docs/
 
 
-LINK HEROKU: https://bedumusic.herokuapp.com/v1/
+## LINK HEROKU: https://bedumusic.herokuapp.com/v1/
