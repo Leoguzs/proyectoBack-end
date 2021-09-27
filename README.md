@@ -24,7 +24,7 @@ Con las funciones del CRUD podremos permitir que los artistas puedan hacer las m
 - Como usuario premium, me gustaría tener acceso a todo el contenido, para no perderme de nada.
 - Como usuario free, me gustaría tener acceso a un limitado número de canciones de forma gratutita, por si no puedo ser Premium 
 - Siendo usuario, estaría cool poder saber qué conciertos hay cerca de mi ciudad.
-Próximo a implementar:
+#### Próximo a implementar:
 - Yo, como usuario de BEDU Music, es que al momento de crear una playlist tenga orden y claridad en la música.
 
 ### Artista 
@@ -32,7 +32,7 @@ Próximo a implementar:
 - Como artista, puedo escuchar música y conocer a más personas como yo.
 - Como artista, me gustaría poder agregar y/o actualizar datos de canciones o discos.
 - Como artista, estaría genial poder saber qué conciertos hay cerca de mi ciudad.
-Próximo a implementar:
+#### Próximo a implementar:
 - Como artista me gustaria informar a mis fans sobre las noticias sobre mi.
 - Siendo un artista, lo más conveniente es poder ver qué disqueras hay dentro de la plataforma, para ofrecer mi trabajo.
 
