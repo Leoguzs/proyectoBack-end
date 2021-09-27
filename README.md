@@ -71,4 +71,4 @@ Con el paquete nodemon podremos correr el proyecto como desarrolladores y podrá
 LINK SWAGGER: https://bedumusic.herokuapp.com/api-docs/
 
 
-LINK HEROKY: https://bedumusic.herokuapp.com/v1/
+LINK HEROKU: https://bedumusic.herokuapp.com/v1/
