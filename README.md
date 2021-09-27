@@ -10,7 +10,7 @@ Debemos tener en cuenta que hay 4 categorías (entidades):
 
 - Artistas: que pueden publicar y escuchar música
 - Usuarios: que pueden escuchar música
-- Discos: para que el usuario pueda ingresar a ellos
+- Albums para que el usuario pueda ingresar a ellos
 - Conciertos: para saber qué conciertos hay cerca del usuario
 
 Con las funciones del CRUD podremos permitir que los artistas puedan hacer las modificaciones necesarias para que tengan un rol colaborativo en el proyecto, ya que ellos son lo más importante. 
@@ -23,9 +23,6 @@ Con las funciones del CRUD podremos permitir que los artistas puedan hacer las m
 - Como usuario premium, me gustaría tener acceso a todo el contenido, para no perderme de nada.
 - Como usuario free, me gustaría tener acceso a un limitado número de canciones de forma gratutita, por si no puedo ser Premium 
 - Siendo usuario, estaría cool poder saber qué conciertos hay cerca de mi ciudad.
-- Como usuario me gustaría saber noticias de mis artistas favoritos
-- Como usuario quiero poder compartir mis playlists con otros usuarios
-
 
 ### Artista 
 - Yo, como artista, puedo subir contenido como canciones y discos, para darme a conocer.
@@ -34,7 +31,6 @@ Con las funciones del CRUD podremos permitir que los artistas puedan hacer las m
 - Como artista, estaría genial poder saber qué conciertos hay cerca de mi ciudad.
 - Siendo un artista, lo más conveniente es poder ver qué disqueras hay dentro de la plataforma, para ofrecer mi trabajo.
 - Como artista me gustaria informar a mis fans sobre las noticias sobre mi
-- Como artista quisiera tener información o feedback de mis usuarios, como el rating de mis canciones
 
 ## Diagrama de Caso de Uso
 ![use-cases](https://github.com/Leoguzs/proyectoBack-end/blob/7e3b8f54aa8d2851a4025921e93bcd3beec0e8bc/img/use_cases.png)
