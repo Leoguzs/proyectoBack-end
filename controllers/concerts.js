@@ -21,16 +21,16 @@ function getConcert(req, res, next) {
 }
 
 function updateConcert(req, res, next) {
-    Concert.findById(req.concert.id)
+    Concert.findById(req.params.id)
         .then(concerts => {
             if (!concerts) {
                 return res.sendStatus(401);
             }
             let cambiarInfo = req.body
             if (typeof cambiarInfo.artist !== "undefined")
-                concerts.artist = updatedInfo.artist
+                concerts.artist = cambiarInfo.artist
             if (typeof cambiarInfo.place !== "undefined")
-                concerts.place = updatedInfo.place
+                concerts.place = cambiarInfo.place
             if (typeof cambiarInfo.date !== "undefined")
                 concerts.date = cambiarInfo.date
             if (typeof cambiarInfo.artist_name !== "undefined")

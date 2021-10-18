@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 const ArtistSchema = new mongoose.Schema({
     name: { type: String, required: true },
     nationality: { type: String },
-    year: { type: Number },
+    year: { type: String },
     genres: [{ type: String }],
     images: [{ type: mongoose.Schema.Types.Mixed }],
     type: { type: String }

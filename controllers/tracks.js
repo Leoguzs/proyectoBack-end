@@ -9,8 +9,8 @@ function newTrack(req, res, next) {
 }
 
 function getTrack(req, res, next) {
-    const pop_artist = { path: 'artists', select: 'name' }
-    const pop_album = { path: 'album', select: 'name' }
+    const pop_artist = { path: 'artists' } //, select: 'name' }
+    const pop_album = { path: 'album' } //, select: 'name' }
 
     if (req.params.id) {
         Track.findById(req.params.id)
